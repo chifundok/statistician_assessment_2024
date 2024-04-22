@@ -13,7 +13,7 @@ To submit the answers to this test you have two options:
 1)  create a private repo on your Github account and clone this repo (you can use this repository as a template). Commit changes to your cloned repo (your private repo) and provide access to your repo to thijsbenschop, mwelch750, stacybri (GitHub usernames). Then send the cloned repo link by replying to the email with the test instructions (to mwelch@worldbank.org copying bstacy@worldbank.org and tbenschop@worldbank.org). 
 2)  download the files. Then send a zipped copy of all output files (excluding the original data files) by replying to the email with the test instructions (to mwelch@worldbank.org copying bstacy@worldbank.org and tbenschop@worldbank.org). 
 
-You have 120 minutes (two hours) to complete this test. After 120 minutes you should have committed the last change to your cloned repo and sent an email with all your responses to mwelch@worldbank.org. If submitting answers by email, please attach all code/scripts you produced to prepare your responses. Responses have to be reproducable from your code/scripts.
+You have 120 minutes (two hours) to complete this test. After 120 minutes you should have committed the last change to your cloned repo and sent an email with all your responses to mwelch@worldbank.org. If submitting answers by email, please attach all code/scripts you produced to prepare your responses. Responses have to be reproducible from your code/scripts.
 
 Please reach out immediately to us by email if you experience technical issues. Please refrain from asking for clarifications about the questions.
 
@@ -30,7 +30,7 @@ You can add the answers to this md file in a cloned GitHub repository or use ano
 ## Question 2
 Note: Errors may have been added to the population and GDP data in the data in this repo.
 
-1) Calculate the average GDP per capita for the regions AFE (Africa Eastern and Southern) and AFW (Africa Western and Central) starting from the country level data. The definitions of the regions (which country belong to the two regions) are available in the file WB_groups.csv. This file contains all countries and regons as well as a column that specifies the region to which the country belongs.
+1) Calculate the average GDP per capita for the regions AFE (Africa Eastern and Southern) and AFW (Africa Western and Central) starting from the country level data. The definitions of the regions (which country belong to the two regions) are available in the file WB_groups.csv. This file contains all countries and regions as well as a column that specifies the region to which the country belongs.
 2) Calculate summary statistics and visualize the differences and trends of GDP per capita within and between these two regions. Use an appropriate visualization to show trends over time as well as the differences between the two regions.
 3) Explain which weight you used for the calculation of the regional averages and why.
 4) Do the regional averages you have calculated represent all countries in these two regions? Explain why (not). Explain how could you improve this in one paragraph? 
