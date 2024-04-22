@@ -10,7 +10,7 @@ The indicators "GDP (constant 2015 US$)" and "Population, total" are both indica
 Don't commit any answers to the current repo, as all other candidates will be able to see your responses!
 
 To submit the answers to this test you have two options: 
-1)  create a private repo on your Github account and clone this repo. Commit changes to your cloned repo (your private repo) and provide access to your repo to thijsbenschop, mwelch750, stacybri (GitHub usernames). Then send the cloned repo link by replying to the email with the test instructions (to mwelch@worldbank.org copying bstacy@worldbank.org and tbenschop@worldbank.org). 
+1)  create a private repo on your Github account and clone this repo (you can use this repository as a template). Commit changes to your cloned repo (your private repo) and provide access to your repo to thijsbenschop, mwelch750, stacybri (GitHub usernames). Then send the cloned repo link by replying to the email with the test instructions (to mwelch@worldbank.org copying bstacy@worldbank.org and tbenschop@worldbank.org). 
 2)  download the files. Then send a zipped copy of all output files (excluding the original data files) by replying to the email with the test instructions (to mwelch@worldbank.org copying bstacy@worldbank.org and tbenschop@worldbank.org). 
 
 You have 120 minutes (two hours) to complete this test. After 120 minutes you should have committed the last change to your cloned repo and sent an email with all your responses to mwelch@worldbank.org. If submitting answers by email, please attach all code/scripts you produced to prepare your responses. Responses have to be reproducable from your code/scripts.
