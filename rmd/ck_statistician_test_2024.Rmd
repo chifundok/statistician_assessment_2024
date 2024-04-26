@@ -1,0 +1,107 @@
+---
+title: "Statistician test 2024"
+author: "Chifundo Kanjala"
+date: "2024-04-26"
+output: html_document
+---
+
+```{r include = FALSE}
+# Set chunk options
+knitr::opts_chunk$set(echo = FALSE, warning = FALSE, message = FALSE)
+```
+
+```{r}
+# LOAD THE REQUIRED PACKAGES
+if(!require(pacman)) install.packages("pacman")
+pacman::p_load(tidyverse, here, janitor)
+```
+
+
+#Question 1,  Task 1: Reading or Importing GDP data into R
+
+
+```{r message=F}
+# Load gdp data from CSV
+gdp <- read_csv(here::here("GDP.csv"))
+gdp_clean <- janitor::row_to_names(gdp, row_number = 4, remove_row = TRUE, remove_rows_above = TRUE)
+# Inspect dataframe
+gdp_clean %>% head()
+```
+
+```{r}
+gdp_clean_l <- gdp_clean %>% 
+  pivot_longer(5:68) %>% 
+  rename("year" = name, "gdp" = value)
+```
+
+```{r message=F}
+# Load population data from CSV
+population <- read_csv(here::here("population.csv"))
+population_clean <- janitor::row_to_names(population, row_number = 4, remove_row = TRUE, remove_rows_above = TRUE)
+# Inspect dataframe
+population_clean %>% head()
+# Inspect dataframe
+population_clean %>% head()
+```
+
+
+```{r}
+pop_clean_l <- population_clean %>% 
+  pivot_longer(5:68) %>% 
+  rename("year" = name, "population" = value)
+```
+
+
+#Question 1, Task 2: Calculating GDP per Capita
+```{r}
+
+gdp_pc <- inner_join(gdp_clean_l, pop_clean_l, by=c("Country Code", "year")) %>% 
+  mutate(gdp_pc = gdp/population)
+```
+
+# Question 1,Task 3
+It is not possible to calculate the GDP per capita for each country/year pair in the database because for some countries the GDP is missing. In 2023 
+we have neither population nor GDP. The GDP per capita requires availability of both GDP value and the population.
+
+#Question 1,Task 4
+To improve coverage, approximation techniques will need to be relied upon. Some approaches for doing the estimations could include imputation using values from the neighbouring years. This will require care in order to make sure that the imputation yields reasonable estimates. Checks of internal and external validity will help to ensure that the approximations are usable. The extent of missingness will also need to be considered. a decision has to be made in terms of a threshold for the missingness. For exampe, using imputation techniques if only 5 percent of the data for a given year are missing.
+
+
+```{r}
+# Load World Bank groups data from CSV
+wb_groups <- read_csv(here::here("WB_groups.csv")) %>% 
+  rename ("Country Code" = CountryCode, "Country Name" = "CountryName")
+```
+
+```{r}
+gdp_pc_grps <- inner_join(gdp_pc, wb_groups, by="Country Code") %>% 
+  filter(GroupCode %in% c("AFE", "AFW"))
+```
+
+# Question 2, Task 1
+```{r}
+average_gdp_pc_grp <- gdp_pc_grps %>% 
+group_by(GroupCode, year) %>%
+summarize(mean_gdp_pc_grp = mean(gdp_pc))
+```
+
+# Question 2, Task 2
+```{r}
+gdp_pc_grps %>% 
+  summarise(GroupCode, year, gdp_pc)
+```
+
+The following tasks were not completed
+Calculate summary statistics and visualize the differences and trends of GDP per capita within and between these two regions. Use an appropriate visualization to show trends over time as well as the differences between the two regions. - Not completed
+
+
+Explain which weight you used for the calculation of the regional averages and why.
+Do the regional averages you have calculated represent all countries in these two regions? Explain why (not). Explain how could you improve this in one paragraph?
+What is the time span for which you calculated the regional averages? Why did you chose this time span? Explain in one paragraph.
+Plot the AFW regional average together with all the countries in the AFW region in one plot. Compare the countries and comment on trends you observe. Please summarize the findings in one paragraph.
+
+Question 3
+Propose data quality tests for the GDP data and implement these in a script. Describe the tests you perform and explain why.
+Did you find any issues with the data?
+Describe a test for outliers in the data and implement it.
+Did you find any outliers? If so, describe how you would proceed\deal with these outliers before publishing the data.
